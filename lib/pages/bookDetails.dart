@@ -38,14 +38,14 @@ class _EbookDetailPageState extends State<EbookDetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const ModernNavBar(),
-      endDrawer: MediaQuery.of(context).size.width < 450
+      endDrawer: MediaQuery.of(context).size.width < 900
           ? const MyNavigationDrawer()
           : null,
       body: LayoutBuilder(
         builder: (context, constraints) {
-          if (constraints.maxWidth > 900) {
+          if (constraints.maxWidth > 970) {
             return _buildDesktopLayout(context);
-          } else if (constraints.maxWidth > 600) {
+          } else if (constraints.maxWidth > 700) {
             return _buildTabletLayout(context);
           }
           return _buildMobileLayout(context);

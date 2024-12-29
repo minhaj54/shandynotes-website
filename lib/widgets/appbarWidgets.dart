@@ -8,7 +8,7 @@ class ModernNavBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final isMobile = screenWidth < 600;
+    final isMobile = screenWidth < 900;
 
     return AppBar(
       backgroundColor: Colors.white,
@@ -21,17 +21,17 @@ class ModernNavBar extends StatelessWidget implements PreferredSizeWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-              padding: const EdgeInsets.all(8),
+              height: 40,
+              width: 40,
+              padding: const EdgeInsets.all(3),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Image.asset(
-                height: isMobile ? 22 : 35,
-                'assets/images/logo.jpg',
-              ),
-              //   child: Icon(Icons.book,
-              //       color: Colors.deepPurple[700], size: isMobile ? 20 : 24),
-              //
+                  image: const DecorationImage(
+                    image: AssetImage(
+                      'assets/images/logo.jpg',
+                    ),
+                  ),
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: Colors.black, width: 2)),
             ),
             const SizedBox(width: 7),
             Text(

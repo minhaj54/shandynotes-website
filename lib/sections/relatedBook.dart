@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../pages/bookDetails.dart';
 import '../services/book_service.dart';
 import '../widgets/bookCard.dart';
 
@@ -14,8 +13,11 @@ class RelatedBookScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        int crossAxisCount =
-            constraints.maxWidth > 600 ? 5 : 2; // Responsive columns
+        int crossAxisCount = constraints.maxWidth < 730
+            ? 2
+            : constraints.maxWidth > 730 && constraints.maxWidth < 1000
+                ? 4
+                : 5; // Responsive columns
 
         return GridView.builder(
             physics: const NeverScrollableScrollPhysics(),

@@ -37,7 +37,7 @@ class _BooksByCategoryPageState extends State<BooksByCategoryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const ModernNavBar(),
-      endDrawer: MediaQuery.of(context).size.width < 420
+      endDrawer: MediaQuery.of(context).size.width < 900
           ? const MyNavigationDrawer()
           : null,
       body: CustomScrollView(
@@ -152,12 +152,12 @@ class _BooksByCategoryPageState extends State<BooksByCategoryPage> {
 
   double _calculateMaxCrossAxisExtent(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    if (screenWidth > 1200) {
+    if (screenWidth > 1000) {
       return screenWidth / 7; // 6 items per row for very large screens
-    } else if (screenWidth > 900) {
-      return screenWidth / 5; // 4 items per row for large screens
-    } else if (screenWidth > 600) {
-      return screenWidth / 4; // 3 items per row for medium screens
+    } else if (screenWidth < 1000 && screenWidth > 810) {
+      return screenWidth / 4; // 4 items per row for large screens
+    } else if (screenWidth < 810 && screenWidth > 650) {
+      return screenWidth / 3; // 3 items per row for medium screens
     } else {
       return screenWidth / 2; // 2 items per row for small screens
     }

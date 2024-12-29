@@ -15,8 +15,11 @@ class FeaturedSectionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        int crossAxisCount =
-            constraints.maxWidth > 600 ? 7 : 2; // Responsive columns
+        int crossAxisCount = constraints.maxWidth < 730
+            ? 2
+            : constraints.maxWidth > 730 && constraints.maxWidth < 1000
+                ? 4
+                : 7; // Responsive columns
 
         return GridView.builder(
             physics: const NeverScrollableScrollPhysics(),

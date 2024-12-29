@@ -14,24 +14,29 @@ class _CommonQueriesState extends State<CommonQueries> {
   // Sample queries data - you can replace with your actual data
   final List<Map<String, String>> queries = [
     {
-      'question': 'What is your return policy?',
+      'question': 'What types of notes can I find on Shandy Notes?',
       'answer':
-          'We accept returns within 30 days of purchase, provided the book is in its original condition and accompanied by the receipt. Refunds will be issued in the original form of payment. Please note that certain items, like discounted or final sale items, may not be eligible for return.',
+          ' Shandy Notes offers a wide range of notes, including programming, technology, and competitive exams like JEE, NEET, UPSC, and more.',
     },
     {
-      'question': 'How long does shipping take?',
+      'question': 'Are the notes free to access?',
       'answer':
-          'Standard shipping typically takes 3-5 business days within the continental US. International shipping times vary by location, usually taking 7-14 business days.',
+          'No, here you will find every notes is paid, but yes you can come to our telegram channel where we share many resources for free. You can join from below !!',
     },
     {
-      'question': 'Do you offer international shipping?',
+      'question': 'Can I upload my own notes to the platform?',
       'answer':
-          'Yes, we ship to most countries worldwide. International shipping rates and delivery times vary by location. Please check the shipping calculator at checkout for specific rates.',
+          'No, because if we allow this then the quality of notes can be compromised,',
     },
     {
-      'question': 'Are digital versions available?',
+      'question': 'Can I access Shandy Notes on my mobile device?',
       'answer':
-          'Yes, many of our books are available in digital format. Look for the e-book option on the product page of your desired title.',
+          'Yes, Shandy Notes is fully responsive and works seamlessly on both mobile and desktop devices.',
+    },
+    {
+      'question': 'Do I need to create an account to access the notes?',
+      'answer':
+          'No, we have created this platform very simple to use, we don\'t want to waste time of users in those authentication process, here just have to come->select notes->do payment->done and user will get his notes instantly after payment success, and when you do payment we just ask for your number only for  security reasons.',
     },
   ];
 
@@ -61,7 +66,7 @@ class _CommonQueriesState extends State<CommonQueries> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Common Inquiries',
+                        'FAQs',
                         style: Theme.of(context)
                             .textTheme
                             .headlineMedium
@@ -72,7 +77,7 @@ class _CommonQueriesState extends State<CommonQueries> {
                       ),
                       const SizedBox(height: 16),
                       Text(
-                        'Find quick answers to common questions about our books, services and policies.',
+                        'Find quick answers to common questions about our notes, services etc.',
                         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                               color: Colors.black54,
                             ),
@@ -141,58 +146,24 @@ class _CommonQueriesState extends State<CommonQueries> {
                 ),
                 // Right side image (hidden on mobile)
                 if (!isMobile) ...[
-                  const SizedBox(width: 64),
+                  const SizedBox(
+                    width: 30,
+                  ),
                   Expanded(
-                    child: Column(
-                      children: [
-                        Stack(
-                          children: [
-                            // Decorative shapes
-                            Positioned(
-                              right: 0,
-                              top: 20,
-                              child: Container(
-                                width: 100,
-                                height: 100,
-                                decoration: BoxDecoration(
-                                  color: Colors.yellow[100],
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                              ),
-                            ),
-                            Positioned(
-                              right: 40,
-                              top: 0,
-                              child: Container(
-                                width: 150,
-                                height: 150,
-                                decoration: BoxDecoration(
-                                  color: Colors.green[100],
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                              ),
-                            ),
-                            // Image
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              child: Image.network(
-                                'https://static.vecteezy.com/system/resources/thumbnails/044/245/414/small_2x/confident-young-businessman-writing-on-a-clipboard-png.png',
-                                fit: BoxFit.cover,
-                                errorBuilder: (context, error, stackTrace) {
-                                  return Container(
-                                    color: Colors.grey.shade200,
-                                    child: const Icon(
-                                      Icons.error_outline,
-                                      color: Colors.grey,
-                                      size: 40,
-                                    ),
-                                  );
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
+                    child: Image.network(
+                      height: 450,
+                      'https://png.pngtree.com/png-clipart/20221113/ourmid/pngtree-brain-bulb-png-image_6446736.png',
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Container(
+                          color: Colors.grey.shade200,
+                          child: const Icon(
+                            Icons.error_outline,
+                            color: Colors.grey,
+                            size: 40,
+                          ),
+                        );
+                      },
                     ),
                   ),
                 ],

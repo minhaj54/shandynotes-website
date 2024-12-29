@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Footer extends StatelessWidget {
   const Footer({super.key});
@@ -6,16 +7,7 @@ class Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            Colors.deepPurple[900]!,
-            Colors.deepPurple[800]!,
-          ],
-        ),
-      ),
+      decoration: const BoxDecoration(color: Colors.deepPurpleAccent),
       padding: const EdgeInsets.symmetric(horizontal: 24),
       child: LayoutBuilder(
         builder: (context, constraints) {
@@ -44,16 +36,14 @@ class DesktopFooter extends StatelessWidget {
           children: [
             const Text(
               '© 2025 Shandy Notes. All rights reserved.',
-              style: TextStyle(color: Colors.white60, fontSize: 14),
+              style: TextStyle(color: Colors.white, fontSize: 14),
             ),
             const SizedBox(
-              width: 40,
+              width: 15,
             ),
             Row(
               children: [
-                _buildSocialIcon(Icons.facebook_outlined),
                 _buildSocialIcon(Icons.telegram_outlined),
-                _buildSocialIcon(Icons.discord_outlined),
               ],
             ),
           ],
@@ -75,17 +65,17 @@ class MobileFooter extends StatelessWidget {
           height: 10,
         ),
         // Copyright and Social Icons
-        const Text(
-          '© 2025 Shandy Notes',
-          style: TextStyle(color: Colors.white, fontSize: 14),
-        ),
-        const SizedBox(height: 16),
+
+        const SizedBox(height: 10),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            _buildSocialIcon(Icons.facebook_outlined),
+            const Text(
+              '© 2025 Shandy Notes',
+              style: TextStyle(color: Colors.white, fontSize: 14),
+            ),
+            const SizedBox(width: 10),
             _buildSocialIcon(Icons.telegram_outlined),
-            _buildSocialIcon(Icons.discord_outlined),
           ],
         ),
         const SizedBox(
@@ -141,11 +131,28 @@ Widget _buildContactItem(IconData icon, String text) {
   );
 }
 
+const String channelUrl = "https://t.me/shandynotes";
+Future<void> _launchTelegramChannel() async {
+  final Uri url = Uri.parse(channelUrl);
+  try {
+    if (!await launchUrl(
+      url,
+      mode: LaunchMode.externalApplication,
+    )) {
+      throw Exception('Could not launch $url');
+    }
+  } catch (e) {
+    debugPrint('Error launching URL: $e');
+  }
+}
+
 Widget _buildSocialIcon(IconData icon) {
   return Container(
     margin: const EdgeInsets.only(right: 16),
     child: InkWell(
-      onTap: () {},
+      onTap: () {
+        _launchTelegramChannel();
+      },
       child: Icon(
         icon,
         color: Colors.white,

@@ -19,7 +19,19 @@ class MyNavigationDrawer extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Icon(Icons.book, color: Colors.white, size: 40),
+                Container(
+                  height: 50,
+                  width: 50,
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                      image: const DecorationImage(
+                        image: AssetImage(
+                          'assets/images/logo.jpg',
+                        ),
+                      ),
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(color: Colors.white)),
+                ),
                 const SizedBox(height: 8),
                 Text(
                   'Shandy Notes',

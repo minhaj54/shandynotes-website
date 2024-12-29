@@ -1,42 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class QuoteBox extends StatelessWidget {
   const QuoteBox({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-        child: Container(
-      height: 400,
+    final screenWidth = MediaQuery.of(context).size.width;
+    final isMobile = screenWidth < 900;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+      height: 270,
       width: double.infinity,
       decoration: const BoxDecoration(
-          image: DecorationImage(
-              fit: BoxFit.cover,
-              image: NetworkImage(
-                  "https://img.freepik.com/premium-photo/banner-woman-sitting-office-with-laptop-computer-yellow-desktop_180633-909.jpg?semt=ais_hybrid"))),
-      child: const Center(
+        color: Colors.deepPurpleAccent,
+      ),
+      child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "The beautiful thing about learning is that no one can take it away from you.",
+              "The beautiful thing about learning is that no one can take it away from you !!",
               textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontSize: 34,
+              style: GoogleFonts.kalam(
+                  fontSize: isMobile ? 24 : 34,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black),
+                  color: Colors.white),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(
-              "--- B.B.King",
-              style: TextStyle(
-                  fontSize: 28,
+              "-B.B.King",
+              style: GoogleFonts.kalam(
+                  fontSize: isMobile ? 18 : 28,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black),
+                  color: Colors.white),
             ),
           ],
         ),
       ),
-    ));
+    );
   }
 }

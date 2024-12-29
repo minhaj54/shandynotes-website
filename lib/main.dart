@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      title: 'sHandy Notes',
+      title: 'Shandy Notes',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -66,7 +66,7 @@ class MyApp extends StatelessWidget {
           path: '/book/:bookTitle',
           builder: (context, state) {
             final bookTitle =
-                state.pathParameters['bookTitle'] ?? 'Unknown Book';
+                state.pathParameters['bookTitle'] ?? 'Unknown Note';
             final books = Provider.of<List<Map<String, dynamic>>>(context);
             if (books.isEmpty) {
               return const Center(child: CircularProgressIndicator());

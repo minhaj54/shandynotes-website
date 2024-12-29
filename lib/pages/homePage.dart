@@ -37,7 +37,7 @@ class Homepage extends StatelessWidget {
         ), // Customize the color as needed
       ),
       appBar: const ModernNavBar(),
-      endDrawer: MediaQuery.of(context).size.width < 420
+      endDrawer: MediaQuery.of(context).size.width < 900
           ? const MyNavigationDrawer()
           : null,
       body: ListView(
