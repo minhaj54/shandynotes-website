@@ -17,7 +17,7 @@ class FeaturedSectionPage extends StatelessWidget {
       builder: (context, constraints) {
         int crossAxisCount = constraints.maxWidth < 730
             ? 2
-            : constraints.maxWidth > 730 && constraints.maxWidth < 1000
+            : constraints.maxWidth > 730 && constraints.maxWidth < 1100
                 ? 4
                 : 7; // Responsive columns
 

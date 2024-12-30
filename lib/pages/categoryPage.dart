@@ -152,9 +152,9 @@ class _BooksByCategoryPageState extends State<BooksByCategoryPage> {
 
   double _calculateMaxCrossAxisExtent(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    if (screenWidth > 1000) {
+    if (screenWidth > 1100) {
       return screenWidth / 7; // 6 items per row for very large screens
-    } else if (screenWidth < 1000 && screenWidth > 810) {
+    } else if (screenWidth < 1100 && screenWidth > 810) {
       return screenWidth / 4; // 4 items per row for large screens
     } else if (screenWidth < 810 && screenWidth > 650) {
       return screenWidth / 3; // 3 items per row for medium screens

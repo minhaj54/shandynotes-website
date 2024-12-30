@@ -4,6 +4,7 @@ import 'package:shandynotes/widgets/appbarWidgets.dart';
 
 import '../sections/relatedBook.dart';
 import '../widgets/navigationDrawer.dart';
+import '../widgets/share_button.dart';
 
 class EbookDetailPage extends StatefulWidget {
   final Map<String, dynamic> book;
@@ -71,9 +72,11 @@ class _EbookDetailPageState extends State<EbookDetailPage> {
               width: isDesktop ? 300 : 200,
               height: isDesktop ? 450 : 300,
               decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey[300]!),
+                  border: Border.all(color: Colors.deepPurpleAccent),
                   // borderRadius: BorderRadius.circular(12),
-                  boxShadow: const [BoxShadow(blurRadius: 2)]),
+                  boxShadow: const [
+                    BoxShadow(blurRadius: 2, color: Colors.deepPurpleAccent)
+                  ]),
               child: Image.network(
                 coverImages[selectedCoverIndex] == true
                     ? coverImages[0]
@@ -110,11 +113,11 @@ class _EbookDetailPageState extends State<EbookDetailPage> {
                     decoration: BoxDecoration(
                       border: Border.all(
                         color: selectedCoverIndex == index
-                            ? Theme.of(context).primaryColor
+                            ? Colors.deepPurpleAccent
                             : Colors.grey[300]!,
-                        width: selectedCoverIndex == index ? 5 : 1,
+                        width: selectedCoverIndex == index ? 3 : 1,
                       ),
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(4),
                     ),
                     child: Image.network(
                       coverImages[index],
@@ -140,12 +143,25 @@ class _EbookDetailPageState extends State<EbookDetailPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          widget.book['Title'] ?? 'Unknown Title',
-          style: Theme.of(context).textTheme.headlineMedium,
+        Row(
+          children: [
+            Expanded(
+              child: Text(
+                widget.book['Title'] ?? 'Unknown Title',
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+            ),
+            ShareButton(
+              bookTitle: widget.book['Title'] ?? 'Unknown Title',
+              bookAuthor: widget.book['Author'] ?? 'Unknown Author',
+              bookUrl:
+                  'https://shandynotes.com/book/${widget.book['Title']}', // Adjust URL as needed
+              price: double.parse(widget.book['Price'].toString()),
+            ),
+          ],
         ),
         const SizedBox(height: 8),
-        Row(
+        Wrap(
           children: [
             Text(
               'By ${widget.book['Author'] ?? 'Unknown Author'}',
@@ -260,7 +276,7 @@ class _EbookDetailPageState extends State<EbookDetailPage> {
 
   Widget _buildInfoGrid(BuildContext context, {required int crossAxisCount}) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final isMobile = screenWidth < 850;
+    final isMobile = screenWidth < 1100;
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(

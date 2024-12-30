@@ -11,6 +11,7 @@ class ModernNavBar extends StatelessWidget implements PreferredSizeWidget {
     final isMobile = screenWidth < 900;
 
     return AppBar(
+      iconTheme: const IconThemeData(color: Colors.deepPurpleAccent),
       backgroundColor: Colors.white,
       elevation: 0, // Removed elevation for modern flat design
       shadowColor: Colors.black12, // Subtle shadow
@@ -39,7 +40,7 @@ class ModernNavBar extends StatelessWidget implements PreferredSizeWidget {
               style: GoogleFonts.kalam(
                 fontSize: isMobile ? 24 : 30,
                 fontWeight: FontWeight.bold,
-                color: Colors.deepPurple[700],
+                color: Colors.deepPurpleAccent,
               ),
             ),
           ],
@@ -140,7 +141,7 @@ class ModernNavBar extends StatelessWidget implements PreferredSizeWidget {
       child: TextButton(
         onPressed: onPressed,
         style: TextButton.styleFrom(
-          foregroundColor: Colors.deepPurple[700],
+          foregroundColor: Colors.deepPurpleAccent,
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
@@ -149,7 +150,11 @@ class ModernNavBar extends StatelessWidget implements PreferredSizeWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(icon, size: 20),
+            Icon(
+              icon,
+              size: 20,
+              color: Colors.deepPurpleAccent,
+            ),
             const SizedBox(width: 8),
             Text(
               label,

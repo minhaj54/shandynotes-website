@@ -43,7 +43,7 @@ class _DesktopBanner extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "50,000+ Notes at One Place.",
+                  "50,000+ Notes at One Place ☺.",
                   style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                         fontWeight: FontWeight.bold,
                         color: Colors.deepPurple,
@@ -52,7 +52,7 @@ class _DesktopBanner extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  "Download your favorite subject's Note, Every Type of notes is available here!\nWe are building world's largest Platform for Notes!!",
+                  "Download your favorite subject's Note, Every Type of notes is available here!\nWe are building world's largest Library for Notes!!",
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         color: Colors.black87,
                         fontSize: 20,
@@ -60,12 +60,12 @@ class _DesktopBanner extends StatelessWidget {
                 ),
                 const SizedBox(height: 32),
                 SizedBox(
-                  width: 200,
+                  width: 250,
                   height: 56,
                   child: ElevatedButton(
                     onPressed: () => context.go('/shop'),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.deepPurple,
+                      backgroundColor: Colors.deepPurpleAccent,
                       foregroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -155,7 +155,7 @@ class _TabletBanner extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  "50,000+ Notes at One Place.",
+                  "50,000+ Notes at One Place ☺.",
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                         fontWeight: FontWeight.bold,
@@ -165,7 +165,7 @@ class _TabletBanner extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  "Download your favorite subject's Note, Every Type of notes is available here!",
+                  "Download your favorite subject's Note, Every Type of notes is available here!\nWe are building world's largest Library for Notes!!",
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         color: Colors.black87,
@@ -173,12 +173,12 @@ class _TabletBanner extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 SizedBox(
-                  width: 200,
+                  width: 250,
                   height: 48,
                   child: ElevatedButton(
                     onPressed: () => context.go('/shop'),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.deepPurple,
+                      backgroundColor: Colors.deepPurpleAccent,
                       foregroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -265,7 +265,7 @@ class _MobileBanner extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  "50,000+ Notes at One Place.",
+                  "50,000+ Notes at One Place ☺.",
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.bold,
@@ -275,7 +275,7 @@ class _MobileBanner extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  "Download your favorite subject's Note, Every Type of notes is available here!",
+                  "Download your favorite subject's Note, Every Type of notes is available here!\nWe are building world's largest Library for Notes!!",
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                         color: Colors.black87,
@@ -289,7 +289,7 @@ class _MobileBanner extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () => context.go('/shop'),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.deepPurple,
+                      backgroundColor: Colors.deepPurpleAccent,
                       foregroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),

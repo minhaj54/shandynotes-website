@@ -12,7 +12,7 @@ class SHandyNoteAiLandingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const ModernNavBar(),
-      endDrawer: MediaQuery.of(context).size.width < 420
+      endDrawer: MediaQuery.of(context).size.width < 1100
           ? const MyNavigationDrawer()
           : null,
       body: CustomScrollView(

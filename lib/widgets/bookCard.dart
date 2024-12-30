@@ -192,6 +192,23 @@ class _BookCardState extends State<BookCard>
                                 overflow: TextOverflow.ellipsis,
                               ),
                             ),
+                            Container(
+                              padding: const EdgeInsets.all(3),
+                              decoration: BoxDecoration(
+                                  color: Colors.deepPurpleAccent,
+                                  borderRadius: BorderRadius.circular(12)),
+                              child: Text(
+                                category,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleMedium
+                                    ?.copyWith(
+                                        color: Colors.white, fontSize: 6),
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 3,
+                            ),
                             Row(
                               children: [
                                 const Icon(Icons.star,
@@ -252,7 +269,6 @@ class _BookCardState extends State<BookCard>
                             ),
                           ],
                         ),
-                        const Spacer(),
                       ],
                     ),
                   ),

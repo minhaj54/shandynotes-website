@@ -14,7 +14,7 @@ class MyNavigationDrawer extends StatelessWidget {
         children: [
           DrawerHeader(
             decoration: const BoxDecoration(
-              color: Colors.deepPurple,
+              color: Colors.deepPurpleAccent,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,23 +44,55 @@ class MyNavigationDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: const Icon(Icons.home),
-            title: const Text('Home'),
+            leading: const Icon(
+              Icons.home,
+              color: Colors.deepPurpleAccent,
+            ),
+            title: const Text(
+              'Home',
+              style: TextStyle(
+                color: Colors.deepPurpleAccent,
+              ),
+            ),
             onTap: () => context.go('/'),
           ),
           ListTile(
-            leading: const Icon(Icons.shopping_bag),
-            title: const Text('Shop'),
+            leading: const Icon(
+              Icons.shopping_bag,
+              color: Colors.deepPurpleAccent,
+            ),
+            title: const Text(
+              'Shop',
+              style: TextStyle(
+                color: Colors.deepPurpleAccent,
+              ),
+            ),
             onTap: () => context.go('/shop'),
           ),
           ListTile(
-            leading: const Icon(Icons.auto_awesome),
-            title: const Text('Shandy AI'),
+            leading: const Icon(
+              Icons.auto_awesome,
+              color: Colors.deepPurpleAccent,
+            ),
+            title: const Text(
+              'Shandy AI',
+              style: TextStyle(
+                color: Colors.deepPurpleAccent,
+              ),
+            ),
             onTap: () => context.go('/shandy-ai'),
           ),
           ListTile(
-            leading: const Icon(Icons.menu_book_outlined),
-            title: const Text('Blog'),
+            leading: const Icon(
+              Icons.menu_book_outlined,
+              color: Colors.deepPurpleAccent,
+            ),
+            title: const Text(
+              'Blog',
+              style: TextStyle(
+                color: Colors.deepPurpleAccent,
+              ),
+            ),
             onTap: () => context.go('/blog'),
           ),
         ],
