@@ -50,12 +50,13 @@ class _BooksByCategoryPageState extends State<BooksByCategoryPage> {
             pinned: true,
             iconTheme: const IconThemeData(color: Colors.black),
             flexibleSpace: FlexibleSpaceBar(
+              titlePadding: const EdgeInsets.only(bottom: 50),
               title: Text(
-                widget.categoryName,
+                widget.categoryName.toUpperCase(),
                 style: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
-                  fontSize: 24,
+                  fontSize: 30,
                 ),
               ),
               background: Stack(
@@ -63,10 +64,13 @@ class _BooksByCategoryPageState extends State<BooksByCategoryPage> {
                 children: [
                   // Background image
                   Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
+                      color: Colors.black,
                       image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(widget.bannerUrl),
+                        alignment: Alignment(-0.2, 1),
+                        fit: BoxFit.contain,
+                        image: NetworkImage(
+                            'https://cloud.appwrite.io/v1/storage/buckets/book-covers/files/6777eac40025e0fe90b7/view?project=6719d1d0001cf69eb622&project=6719d1d0001cf69eb622&mode=admin'),
                       ),
                     ),
                   ),

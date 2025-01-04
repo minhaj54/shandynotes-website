@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
 import '../services/book_service.dart';
 import '../widgets/appbarWidgets.dart';
@@ -75,7 +76,7 @@ class _ShopPageState extends State<ShopPage> {
             selectedColor: Colors.deepPurpleAccent,
             selected: selectedCategory == null,
             onTap: () => _filterByCategory(null),
-            leading: const Icon(Icons.library_books),
+            leading: const Icon(Iconsax.note),
             selectedTileColor: Colors.deepPurpleAccent,
           ),
           const Divider(),
@@ -93,7 +94,7 @@ class _ShopPageState extends State<ShopPage> {
                   selected: selectedCategory == categoryName,
                   selectedTileColor: Colors.deepPurpleAccent,
                   onTap: () => _filterByCategory(categoryName),
-                  leading: const Icon(Icons.book_outlined),
+                  leading: const Icon(Iconsax.book),
                 );
               },
             ),

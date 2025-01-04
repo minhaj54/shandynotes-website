@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:shandynotes/pages/payment_page.dart';
 import 'package:shandynotes/widgets/appbarWidgets.dart';
 
 import '../sections/relatedBook.dart';
@@ -33,6 +33,25 @@ class _EbookDetailPageState extends State<EbookDetailPage> {
   void dispose() {
     _pageController.dispose();
     super.dispose();
+  }
+
+  String formatPrice(dynamic price) {
+    if (price == null) return '₹0.00';
+    if (price is String) return price;
+    if (price is num) {
+      return '₹${price.toStringAsFixed(2)}';
+    }
+    return '₹0.00';
+  }
+
+  double calculateDiscountedPrice(
+      {required double actualPrice, required double discountPercent}) {
+    if (discountPercent < 0 || discountPercent > 100) {
+      throw ArgumentError('Discount percent must be between 0 and 100');
+    }
+
+    double discountAmount = (actualPrice * discountPercent) / 100;
+    return actualPrice - discountAmount;
   }
 
   @override
@@ -153,18 +172,18 @@ class _EbookDetailPageState extends State<EbookDetailPage> {
             ),
             ShareButton(
               bookTitle: widget.book['Title'] ?? 'Unknown Title',
-              bookAuthor: widget.book['Author'] ?? 'Unknown Author',
+              bookAuthor: widget.book['Author'] ?? 'Shandy Notes',
               bookUrl:
                   'https://shandynotes.com/book/${widget.book['Title']}', // Adjust URL as needed
               price: double.parse(widget.book['Price'].toString()),
             ),
           ],
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 4),
         Wrap(
           children: [
             Text(
-              'By ${widget.book['Author'] ?? 'Unknown Author'}',
+              'By ${widget.book['Author'] ?? 'Shandy Notes'}',
               style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     color: Colors.grey[600],
                   ),
@@ -182,7 +201,7 @@ class _EbookDetailPageState extends State<EbookDetailPage> {
             ),
             const SizedBox(width: 8),
             Text(
-              '(128 reviews)',
+              '(798 reviews)',
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     color: Colors.grey[600],
                   ),
@@ -205,7 +224,10 @@ class _EbookDetailPageState extends State<EbookDetailPage> {
           Row(
             children: [
               Text(
-                "₹${widget.book['Price']}",
+                formatPrice(calculateDiscountedPrice(
+                    actualPrice: widget.book['comparedPrice'],
+                    discountPercent: widget.book['discountPercent'])),
+                // "₹${widget.book['Price']}",
                 style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                       color: Theme.of(context).primaryColor,
                       fontWeight: FontWeight.bold,
@@ -220,11 +242,23 @@ class _EbookDetailPageState extends State<EbookDetailPage> {
                     ),
               ),
               const Spacer(),
-              Text(
-                'Available',
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      color: Colors.green,
-                    ),
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 4,
+                  vertical: 2,
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(6),
+                ),
+                child: Text(
+                  "${widget.book['discountPercent']}% Off",
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
             ],
           ),
@@ -235,7 +269,15 @@ class _EbookDetailPageState extends State<EbookDetailPage> {
                 width: 200,
                 height: 56,
                 child: ElevatedButton.icon(
-                  onPressed: () => context.go('/payment'),
+                  onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PaymentPage(
+                          pdfUrl: widget.book['pdfFileId'],
+                          //  amount: widget.book['Price'],
+                        ),
+                      )),
+                  // onPressed: () => context.go('/payment'),
                   icon: const Icon(
                     Icons.bolt,
                     color: Colors.white,
@@ -299,21 +341,12 @@ class _EbookDetailPageState extends State<EbookDetailPage> {
             crossAxisSpacing: 16,
             mainAxisSpacing: 16,
             children: [
-              _buildInfoTile(context, 'Genre',
-                  widget.book['genre'] ?? 'Unknown', Icons.category),
               _buildInfoTile(context, 'Pages',
                   '${widget.book['Pages'] ?? 'Unknown'}', Icons.book),
               _buildInfoTile(context, 'Language',
                   widget.book['Language'] ?? 'Unknown', Icons.language),
-              _buildInfoTile(
-                  context,
-                  'Published',
-                  widget.book['publishedDate'] ?? 'Unknown',
-                  Icons.calendar_today),
               _buildInfoTile(context, 'Publisher',
                   widget.book['Publisher'] ?? 'Unknown', Icons.business),
-              _buildInfoTile(context, 'ISBN', widget.book['ISBN'] ?? 'Unknown',
-                  Icons.qr_code),
             ],
           ),
         ],

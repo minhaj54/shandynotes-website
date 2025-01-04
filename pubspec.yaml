@@ -49,6 +49,7 @@ dependencies:
   provider: ^6.1.2
   google_fonts:
   share_plus:
+  iconsax: ^0.0.8
 
 dev_dependencies:
   flutter_test:

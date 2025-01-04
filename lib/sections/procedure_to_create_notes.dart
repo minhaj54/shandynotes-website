@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
 class ProcedureToCreateNotes extends StatelessWidget {
   const ProcedureToCreateNotes({super.key});
@@ -38,7 +39,7 @@ class ProcedureToCreateNotes extends StatelessWidget {
                                   stepNumber: 1,
                                   title: 'Understanding the Topic',
                                   description:
-                                      'We thoroughly research and analyze the topic to ensure we have a clear understanding of its core concepts and nuances.',
+                                      'We thoroughly research and analyze the topic to ensure we have a clear understanding of its core concepts etc.',
                                   icon: Icons.app_registration,
                                 ),
                                 _buildVerticalLine(),
@@ -47,7 +48,7 @@ class ProcedureToCreateNotes extends StatelessWidget {
                                   title: 'Gathering Reliable Sources',
                                   description:
                                       'Our team curates information from trusted textbooks, academic journals, expert lectures, and other credible resources to ensure accuracy.',
-                                  icon: Icons.navigate_next,
+                                  icon: Icons.manage_search,
                                 ),
                                 _buildVerticalLine(),
                                 _buildProcedureStep(
@@ -97,7 +98,7 @@ class ProcedureToCreateNotes extends StatelessWidget {
                                   title: 'Highlighting Key Points',
                                   description:
                                       'Important concepts, definitions, and takeaways are highlighted using bold text, color codes, and icons to make them stand out.',
-                                  icon: Icons.save,
+                                  icon: Icons.highlight,
                                 ),
                                 _buildVerticalLine(),
                                 _buildProcedureStep(
@@ -105,7 +106,7 @@ class ProcedureToCreateNotes extends StatelessWidget {
                                   title: 'Ensuring Clarity and Accuracy',
                                   description:
                                       'Each note undergoes a thorough review to ensure it is free from errors and aligned with the topic’s objective.',
-                                  icon: Icons.save,
+                                  icon: Iconsax.tag_right,
                                 ),
                                 _buildVerticalLine(),
                                 _buildProcedureStep(
@@ -113,7 +114,7 @@ class ProcedureToCreateNotes extends StatelessWidget {
                                   title: 'Organizing by Categories',
                                   description:
                                       'Notes are categorized into relevant sections like Programming, Technology, JEE, NEET and more, so users can easily find what they need.',
-                                  icon: Icons.save,
+                                  icon: Icons.clear_all,
                                 ),
                                 _buildVerticalLine(),
                                 _buildProcedureStep(
@@ -121,7 +122,7 @@ class ProcedureToCreateNotes extends StatelessWidget {
                                   title: 'Regular Updates',
                                   description:
                                       'We periodically update our notes to include the latest information, trends, and discoveries in the field.',
-                                  icon: Icons.save,
+                                  icon: Icons.browser_updated_rounded,
                                 ),
                                 _buildVerticalLine(),
                                 _buildProcedureStep(
@@ -129,7 +130,7 @@ class ProcedureToCreateNotes extends StatelessWidget {
                                   title: 'Feedback Integration',
                                   description:
                                       'We listen to user feedback to improve and refine our notes, ensuring they are always user-friendly and comprehensive.',
-                                  icon: Icons.folder_open,
+                                  icon: Icons.feed_rounded,
                                   isLastStep: true,
                                 ),
                               ],
@@ -171,7 +172,7 @@ class ProcedureToCreateNotes extends StatelessWidget {
                         stepNumber: 1,
                         title: 'Understanding the Topic',
                         description:
-                            'We thoroughly research and analyze the topic to ensure we have a clear understanding of its core concepts and nuances.',
+                            'We thoroughly research and analyze the topic to ensure we have a clear understanding of its core concepts etc.',
                         icon: Icons.app_registration,
                       ),
                       _buildVerticalLine(),
@@ -180,7 +181,7 @@ class ProcedureToCreateNotes extends StatelessWidget {
                         title: 'Gathering Reliable Sources',
                         description:
                             'Our team curates information from trusted textbooks, academic journals, expert lectures, and other credible resources to ensure accuracy.',
-                        icon: Icons.navigate_next,
+                        icon: Icons.manage_search,
                       ),
                       _buildVerticalLine(),
                       _buildProcedureStep(
@@ -212,7 +213,7 @@ class ProcedureToCreateNotes extends StatelessWidget {
                         title: 'Highlighting Key Points',
                         description:
                             'Important concepts, definitions, and takeaways are highlighted using bold text, color codes, and icons to make them stand out.',
-                        icon: Icons.save,
+                        icon: Icons.highlight,
                       ),
                       _buildVerticalLine(),
                       _buildProcedureStep(
@@ -220,7 +221,7 @@ class ProcedureToCreateNotes extends StatelessWidget {
                         title: 'Ensuring Clarity and Accuracy',
                         description:
                             'Each note undergoes a thorough review to ensure it is free from errors and aligned with the topic’s objective.',
-                        icon: Icons.save,
+                        icon: Iconsax.tag_right,
                       ),
                       _buildVerticalLine(),
                       _buildProcedureStep(
@@ -228,7 +229,7 @@ class ProcedureToCreateNotes extends StatelessWidget {
                         title: 'Organizing by Categories',
                         description:
                             'Notes are categorized into relevant sections like Programming, Technology, JEE, NEET and more, so users can easily find what they need.',
-                        icon: Icons.save,
+                        icon: Icons.clear_all,
                       ),
                       _buildVerticalLine(),
                       _buildProcedureStep(
@@ -236,7 +237,7 @@ class ProcedureToCreateNotes extends StatelessWidget {
                         title: 'Regular Updates',
                         description:
                             'We periodically update our notes to include the latest information, trends, and discoveries in the field.',
-                        icon: Icons.save,
+                        icon: Icons.browser_updated_rounded,
                       ),
                       _buildVerticalLine(),
                       _buildProcedureStep(
@@ -244,7 +245,7 @@ class ProcedureToCreateNotes extends StatelessWidget {
                         title: 'Feedback Integration',
                         description:
                             'We listen to user feedback to improve and refine our notes, ensuring they are always user-friendly and comprehensive.',
-                        icon: Icons.folder_open,
+                        icon: Icons.feed_rounded,
                         isLastStep: true,
                       ),
                     ],

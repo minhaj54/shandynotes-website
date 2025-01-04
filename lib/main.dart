@@ -7,7 +7,6 @@ import 'package:shandynotes/pages/blog_page.dart';
 import 'package:shandynotes/pages/bookDetails.dart';
 import 'package:shandynotes/pages/categoryPage.dart';
 import 'package:shandynotes/pages/homePage.dart';
-import 'package:shandynotes/pages/payment_page.dart';
 import 'package:shandynotes/pages/shop_page.dart';
 import 'package:shandynotes/pages/url_error_page.dart';
 import 'package:shandynotes/sHandy_ai/shandy_ai.dart';
@@ -146,10 +145,10 @@ class MyApp extends StatelessWidget {
             return EbookDetailPage(book: book);
           },
         ),
-        GoRoute(
-          path: '/payment',
-          builder: (context, state) => const PaymentPage(),
-        ),
+        // GoRoute(
+        //   path: '/payment',
+        //   builder: (context, state) => const PaymentPage(),
+        // ),
         GoRoute(
           path: '/yt-channel',
           builder: (context, state) => const ChannelHomePage(),

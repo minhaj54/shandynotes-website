@@ -62,11 +62,23 @@ class _BookCardState extends State<BookCard>
         .map((image) => image as String)
         .toList();
 
+    double calculateDiscountedPrice(
+        {required double actualPrice, required double discountPercent}) {
+      if (discountPercent < 0 || discountPercent > 100) {
+        throw ArgumentError('Discount percent must be between 0 and 100');
+      }
+
+      double discountAmount = (actualPrice * discountPercent) / 100;
+      return actualPrice - discountAmount;
+    }
+
     final title = widget.book['Title']?.toString() ?? 'Untitled';
     final category = widget.book['Category']?.toString() ?? "Category";
     final author = widget.book['Author']?.toString();
+    final price = widget.book['comparedPrice'];
     final imageUrl = coverImages[0];
-    final price = formatPrice(widget.book['Price']);
+    // final price = formatPrice(widget.book['Price']);
+    final discountPercent = widget.book['discountPercent'];
 
     return MouseRegion(
       onEnter: (_) {
@@ -153,9 +165,9 @@ class _BookCardState extends State<BookCard>
                                 color: Colors.red,
                                 borderRadius: BorderRadius.circular(6),
                               ),
-                              child: const Text(
-                                '40% OFF',
-                                style: TextStyle(
+                              child: Text(
+                                "$discountPercent% Off",
+                                style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 8,
                                   fontWeight: FontWeight.bold,
@@ -227,7 +239,9 @@ class _BookCardState extends State<BookCard>
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              price,
+                              formatPrice(calculateDiscountedPrice(
+                                  actualPrice: price,
+                                  discountPercent: discountPercent)),
                               style: TextStyle(
                                 color: Theme.of(context).primaryColor,
                                 fontWeight: FontWeight.bold,

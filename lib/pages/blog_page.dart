@@ -114,38 +114,41 @@ class BlogPageState extends State<BlogPage> {
     final isMobile = screenWidth < 600;
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Colors.white,
-          elevation: 0, // Removed elevation for modern flat design
-          shadowColor: Colors.black12, // Subtle shadow
-          surfaceTintColor: Colors.white,
-          title: Row(
+        backgroundColor: Colors.white,
+        elevation: 0, // Removed elevation for modern flat design
+        shadowColor: Colors.black12, // Subtle shadow
+        surfaceTintColor: Colors.white,
+        title: InkWell(
+          onTap: () => context.go('/'),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Container(
-                padding: const EdgeInsets.all(8),
+                height: 40,
+                width: 40,
+                padding: const EdgeInsets.all(3),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Icon(Icons.book,
-                    color: Colors.deepPurple[700], size: isMobile ? 20 : 24),
+                    image: const DecorationImage(
+                      image: AssetImage(
+                        'assets/images/logo.jpg',
+                      ),
+                    ),
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: Colors.black, width: 2)),
               ),
-              const SizedBox(width: 12),
-              TextButton(
-                onPressed: () => context.go('/'),
-                style: TextButton.styleFrom(
-                  padding: EdgeInsets.zero,
-                  foregroundColor: Colors.deepPurple[700],
-                ),
-                child: Text(
-                  "Shandy Notes",
-                  style: GoogleFonts.kalam(
-                    fontSize: isMobile ? 24 : 30,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.deepPurple[700],
-                  ),
+              const SizedBox(width: 20),
+              Text(
+                "Shandy Notes",
+                style: GoogleFonts.kalam(
+                  fontSize: isMobile ? 24 : 30,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.deepPurpleAccent,
                 ),
               ),
             ],
-          )),
+          ),
+        ),
+      ),
       body: kIsWeb ? _buildWebContent() : _buildNonWebContent(),
     );
   }

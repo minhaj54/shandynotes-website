@@ -30,7 +30,7 @@ class MyNavigationDrawer extends StatelessWidget {
                         ),
                       ),
                       borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: Colors.white)),
+                      border: Border.all(color: Colors.black)),
                 ),
                 const SizedBox(height: 8),
                 Text(

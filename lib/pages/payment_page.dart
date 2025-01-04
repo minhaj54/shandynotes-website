@@ -2,16 +2,15 @@ import 'dart:html' as html;
 import 'dart:js' as js;
 
 import 'package:flutter/material.dart';
+import 'package:shandynotes/widgets/appbarWidgets.dart';
+
+import '../widgets/navigationDrawer.dart';
 
 class PaymentPage extends StatefulWidget {
   final double amount;
   final String pdfUrl;
 
-  const PaymentPage(
-      {super.key,
-      this.amount = 1.0,
-      this.pdfUrl =
-          'https://cloud.appwrite.io/v1/storage/buckets/book-pdfs/files/67254534003b8b957a1f/view?project=6719d1d0001cf69eb622&project=6719d1d0001cf69eb622&mode=admin'});
+  const PaymentPage({super.key, this.amount = 1, required this.pdfUrl});
 
   @override
   _PaymentPageState createState() => _PaymentPageState();
@@ -88,7 +87,7 @@ class _PaymentPageState extends State<PaymentPage> {
               const Text('Your PDF is ready to download.'),
               const SizedBox(height: 20),
               Image.network(
-                'https://zeuxinnovation.com/wp-content/uploads/2023/04/maximising-user-satisfaction-1.jpg',
+                'https://www.kablooe.com/wp-content/uploads/2019/08/check_mark.png',
                 height: 100,
                 width: 100,
                 fit: BoxFit.contain,
@@ -143,7 +142,7 @@ class _PaymentPageState extends State<PaymentPage> {
         'key': 'rzp_live_IgHUgvPYplZAk4',
         'amount': amountInPaise,
         'currency': 'INR',
-        'name': 'sHandy Notes',
+        'name': 'Shandy Notes',
         'description': 'PDF Purchase',
         'handler': js.allowInterop((response) {
           js.context.callMethod('razorpaySuccessHandler', [response]);
@@ -189,11 +188,8 @@ class _PaymentPageState extends State<PaymentPage> {
     final screenWidth = MediaQuery.of(context).size.width;
     final isMobile = screenWidth < 600;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Secure Checkout'),
-        elevation: 0,
-        centerTitle: true,
-      ),
+      appBar: const ModernNavBar(),
+      endDrawer: const MyNavigationDrawer(),
       body: Center(
         child: Container(
           width: isMobile ? 380 : 600,
@@ -245,7 +241,7 @@ class _PaymentPageState extends State<PaymentPage> {
                             ),
                             const SizedBox(height: 24),
                             Text(
-                              'Access Your Note!!',
+                              'Get Your Note !!',
                               style: Theme.of(context)
                                   .textTheme
                                   .headlineSmall
@@ -334,7 +330,7 @@ class _PaymentPageState extends State<PaymentPage> {
                                             ),
                                             const SizedBox(width: 8),
                                             Text(
-                                              'Pay Securely ₹${widget.amount.toStringAsFixed(2)}',
+                                              'Pay  ₹${widget.amount.toStringAsFixed(2)}',
                                               style: const TextStyle(
                                                   fontSize: 18,
                                                   fontWeight: FontWeight.bold,
@@ -389,10 +385,9 @@ class _PaymentPageState extends State<PaymentPage> {
                                 _buildFeatureItem(
                                     Icons.speed, 'Instant Access'),
                                 const SizedBox(width: 24),
-                                _buildFeatureItem(Icons.refresh, '100% Refund'),
-                                const SizedBox(width: 24),
                                 _buildFeatureItem(
-                                    Icons.support_agent, '24/7 Support'),
+                                    Icons.refresh, 'Non-Refundable'),
+                                const SizedBox(width: 24),
                               ],
                             ),
                           ],

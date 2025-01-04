@@ -26,13 +26,14 @@ class ModernNavBar extends StatelessWidget implements PreferredSizeWidget {
               width: 40,
               padding: const EdgeInsets.all(3),
               decoration: BoxDecoration(
-                  image: const DecorationImage(
-                    image: AssetImage(
-                      'assets/images/logo.jpg',
-                    ),
+                image: const DecorationImage(
+                  image: AssetImage(
+                    'assets/images/logo.jpg',
                   ),
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(color: Colors.black, width: 2)),
+                ),
+                borderRadius: BorderRadius.circular(9),
+                border: Border.all(color: Colors.deepPurpleAccent, width: 1),
+              ),
             ),
             const SizedBox(width: 7),
             Text(

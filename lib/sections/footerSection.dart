@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Footer extends StatelessWidget {
@@ -43,7 +44,14 @@ class DesktopFooter extends StatelessWidget {
             ),
             Row(
               children: [
-                _buildSocialIcon(Icons.telegram_outlined),
+                _buildSocialIcon(
+                  Icons.telegram_outlined,
+                  () => _launchTelegramChannel(),
+                ),
+                _buildSocialIcon(
+                  Iconsax.instagram,
+                  () => _launchInstagramPage(),
+                ),
               ],
             ),
           ],
@@ -75,7 +83,14 @@ class MobileFooter extends StatelessWidget {
               style: TextStyle(color: Colors.white, fontSize: 14),
             ),
             const SizedBox(width: 10),
-            _buildSocialIcon(Icons.telegram_outlined),
+            _buildSocialIcon(
+              Icons.telegram_sharp,
+              () => _launchTelegramChannel(),
+            ),
+            _buildSocialIcon(
+              Iconsax.instagram,
+              () => _launchInstagramPage(),
+            ),
           ],
         ),
         const SizedBox(
@@ -132,6 +147,9 @@ Widget _buildContactItem(IconData icon, String text) {
 }
 
 const String channelUrl = "https://t.me/shandynotes";
+const String instaPageUrl =
+    "https://www.instagram.com/shandynotes?igsh=dXRndTd5MGhrbXoy&utm_source=qr";
+
 Future<void> _launchTelegramChannel() async {
   final Uri url = Uri.parse(channelUrl);
   try {
@@ -146,13 +164,25 @@ Future<void> _launchTelegramChannel() async {
   }
 }
 
-Widget _buildSocialIcon(IconData icon) {
+Future<void> _launchInstagramPage() async {
+  final Uri url = Uri.parse(instaPageUrl);
+  try {
+    if (!await launchUrl(
+      url,
+      mode: LaunchMode.externalApplication,
+    )) {
+      throw Exception('Could not launch $url');
+    }
+  } catch (e) {
+    debugPrint('Error launching URL: $e');
+  }
+}
+
+Widget _buildSocialIcon(IconData icon, VoidCallback onTap) {
   return Container(
     margin: const EdgeInsets.only(right: 16),
     child: InkWell(
-      onTap: () {
-        _launchTelegramChannel();
-      },
+      onTap: onTap,
       child: Icon(
         icon,
         color: Colors.white,
