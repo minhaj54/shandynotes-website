@@ -2,6 +2,7 @@ import 'dart:html' as html;
 import 'dart:js' as js;
 
 import 'package:flutter/material.dart';
+import 'package:shandynotes/pages/homePage.dart';
 import 'package:shandynotes/widgets/appbarWidgets.dart';
 
 import '../widgets/navigationDrawer.dart';
@@ -116,8 +117,22 @@ class _PaymentPageState extends State<PaymentPage> {
   }
 
   void _downloadPDF() {
+    // Open the PDF in a new tab
     html.window.open(widget.pdfUrl, '_blank');
+
+    // Navigate to the homepage
+    Future.delayed(const Duration(milliseconds: 500), () {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+            builder: (context) =>
+                const Homepage()), // Replace with your homepage widget
+      );
+    });
   }
+
+  // void _downloadPDF() {
+  //   html.window.open(widget.pdfUrl, '_blank');
+  // }
 
   void _startPayment() {
     if (_isLoading || !_isScriptLoaded) return;

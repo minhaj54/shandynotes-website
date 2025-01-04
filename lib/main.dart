@@ -34,142 +34,91 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Shandy Notes',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        primaryColor: Colors.deepPurpleAccent,
-        useMaterial3: true,
+      theme: _buildTheme(),
+      routerConfig: _buildRouter(),
+    );
+  }
 
-        // Primary font for headings
-        textTheme: TextTheme(
-          displayLarge: GoogleFonts.poppins(
-            fontSize: 32,
-            fontWeight: FontWeight.bold,
-            letterSpacing: -0.5,
-          ),
-          displayMedium: GoogleFonts.poppins(
-            fontSize: 28,
-            fontWeight: FontWeight.bold,
-            letterSpacing: -0.5,
-          ),
-          displaySmall: GoogleFonts.poppins(
-            fontSize: 24,
-            fontWeight: FontWeight.w600,
-          ),
-          headlineMedium: GoogleFonts.poppins(
-            fontSize: 20,
-            fontWeight: FontWeight.w600,
-          ),
-          // Body text
-          bodyLarge: GoogleFonts.inter(
-            fontSize: 16,
-            fontWeight: FontWeight.normal,
-          ),
-          bodyMedium: GoogleFonts.inter(
-            fontSize: 14,
-            fontWeight: FontWeight.normal,
-          ),
-          // Labels and small text
-          labelLarge: GoogleFonts.inter(
-            fontSize: 14,
-            fontWeight: FontWeight.w500,
-            letterSpacing: 0.5,
-          ),
-          labelMedium: GoogleFonts.inter(
-            fontSize: 12,
-            fontWeight: FontWeight.w500,
-            letterSpacing: 0.5,
-          ),
-        ),
-
-        // Apply the fonts to AppBar
-        appBarTheme: AppBarTheme(
-          titleTextStyle: GoogleFonts.poppins(
-            fontSize: 20,
-            fontWeight: FontWeight.w600,
-            color: Colors.white,
-          ),
-        ),
-
-        // For buttons and interactive elements
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            textStyle: GoogleFonts.inter(
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
+  ThemeData _buildTheme() {
+    return ThemeData(
+      colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      primaryColor: Colors.deepPurpleAccent,
+      useMaterial3: true,
+      textTheme: GoogleFonts.poppinsTextTheme().copyWith(
+        bodyLarge: GoogleFonts.inter(fontSize: 16),
+        bodyMedium: GoogleFonts.inter(fontSize: 14),
+      ),
+      appBarTheme: AppBarTheme(
+        titleTextStyle: GoogleFonts.poppins(
+          fontSize: 20,
+          fontWeight: FontWeight.w600,
+          color: Colors.white,
         ),
       ),
-      routerConfig: _buildRouter(),
     );
   }
 
   GoRouter _buildRouter() {
     return GoRouter(
       initialLocation: '/',
-      routes: [
-        GoRoute(
-          path: '/',
-          builder: (context, state) => const Homepage(),
-        ),
-        GoRoute(
-          path: '/shop',
-          builder: (context, state) => const ShopPage(),
-        ),
-        GoRoute(
-          path: '/blog',
-          builder: (context, state) => const BlogPage(),
-        ),
-        GoRoute(
-          path: '/shandy-ai',
-          builder: (context, state) => const SHandyNoteAiLandingPage(),
-        ),
-        GoRoute(
-          path: '/book/:bookTitle',
-          builder: (context, state) {
-            final bookTitle =
-                state.pathParameters['bookTitle'] ?? 'Unknown Note';
-            final books = Provider.of<List<Map<String, dynamic>>>(context);
-            if (books.isEmpty) {
-              return const Center(child: CircularProgressIndicator());
-            }
-            final book = books.firstWhere(
-              (b) => b['Title'] == bookTitle,
-              orElse: () {
-                return {'Title': 'Unknown Book', 'error': true};
-              },
-            );
-            if (book['error'] == true) {
-              return const UrlErrorPage();
-            }
-            return EbookDetailPage(book: book);
-          },
-        ),
-        // GoRoute(
-        //   path: '/payment',
-        //   builder: (context, state) => const PaymentPage(),
-        // ),
-        GoRoute(
-          path: '/yt-channel',
-          builder: (context, state) => const ChannelHomePage(),
-        ),
-        GoRoute(
-          path: '/category/:categoryName',
-          builder: (context, state) {
-            final categoryName =
-                state.pathParameters['categoryName'] ?? 'Unknown Category';
-            final bannerUrl = state.pathParameters['bannerUrl'] ??
-                'https://static.vecteezy.com/system/resources/thumbnails/044/303/796/small/abstract-wrapping-paper-rolling-on-a-black-background-concept-of-gifts-and-celebrations-design-two-rolls-of-decorative-gift-paper-in-motion-video.jpg'; // Replace with actual URL or logic to fetch it
-            return BooksByCategoryPage(
-              categoryName: categoryName,
-              bannerUrl: bannerUrl,
-            );
-          },
-        ),
-      ],
-      errorPageBuilder: (context, state) => const MaterialPage(
-        child: UrlErrorPage(),
-      ),
+      routes: _buildRoutes(),
+      errorBuilder: (context, state) => const UrlErrorPage(),
     );
+  }
+
+  List<GoRoute> _buildRoutes() {
+    return [
+      GoRoute(
+        path: '/',
+        builder: (context, state) => const Homepage(),
+      ),
+      GoRoute(
+        path: '/shop',
+        builder: (context, state) => const ShopPage(),
+      ),
+      GoRoute(
+        path: '/blog',
+        builder: (context, state) => const BlogPage(),
+      ),
+      GoRoute(
+        path: '/shandy-ai',
+        builder: (context, state) => const SHandyNoteAiLandingPage(),
+      ),
+      GoRoute(
+        path: '/book/:bookTitle',
+        builder: (context, state) {
+          final bookTitle = state.pathParameters['bookTitle'] ?? 'Unknown Note';
+          return Consumer<List<Map<String, dynamic>>>(
+            builder: (context, books, _) {
+              final book = books.firstWhere(
+                (b) => b['Title'] == bookTitle,
+                orElse: () => {'Title': 'Unknown Book', 'error': true},
+              );
+              if (book['error'] == true) {
+                return const UrlErrorPage();
+              }
+              return EbookDetailPage(book: book);
+            },
+          );
+        },
+      ),
+      GoRoute(
+        path: '/yt-channel',
+        builder: (context, state) => const ChannelHomePage(),
+      ),
+      GoRoute(
+        path: '/category/:categoryName',
+        builder: (context, state) {
+          final categoryName =
+              state.pathParameters['categoryName'] ?? 'Unknown';
+          final bannerUrl = state.uri.queryParameters['bannerUrl'] ??
+              'https://static.vecteezy.com/system/resources/thumbnails/044/303/796/small/abstract-wrapping-paper-rolling-on-a-black-background-concept-of-gifts-and-celebrations-design-two-rolls-of-decorative-gift-paper-in-motion-video.jpg';
+          return BooksByCategoryPage(
+            categoryName: categoryName,
+            bannerUrl: bannerUrl,
+          );
+        },
+      ),
+    ];
   }
 }

@@ -24,7 +24,7 @@ class Homepage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           const url =
-              'https://wa.me/9113315775'; // Replace with your WhatsApp number
+              'https://ig.me/m/shandynotes'; // Replace with your WhatsApp number
           if (await canLaunchUrl(Uri.parse(url))) {
             await launchUrl(Uri.parse(url));
           } else {

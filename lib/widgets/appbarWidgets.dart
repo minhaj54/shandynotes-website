@@ -35,7 +35,7 @@ class ModernNavBar extends StatelessWidget implements PreferredSizeWidget {
                 border: Border.all(color: Colors.deepPurpleAccent, width: 1),
               ),
             ),
-            const SizedBox(width: 7),
+            const SizedBox(width: 12),
             Text(
               "Shandy Notes",
               style: GoogleFonts.kalam(

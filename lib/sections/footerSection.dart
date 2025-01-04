@@ -45,10 +45,6 @@ class DesktopFooter extends StatelessWidget {
             Row(
               children: [
                 _buildSocialIcon(
-                  Icons.telegram_outlined,
-                  () => _launchTelegramChannel(),
-                ),
-                _buildSocialIcon(
                   Iconsax.instagram,
                   () => _launchInstagramPage(),
                 ),
@@ -83,10 +79,6 @@ class MobileFooter extends StatelessWidget {
               style: TextStyle(color: Colors.white, fontSize: 14),
             ),
             const SizedBox(width: 10),
-            _buildSocialIcon(
-              Icons.telegram_sharp,
-              () => _launchTelegramChannel(),
-            ),
             _buildSocialIcon(
               Iconsax.instagram,
               () => _launchInstagramPage(),

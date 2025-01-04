@@ -363,7 +363,10 @@ class _EbookDetailPageState extends State<EbookDetailPage> {
           style: Theme.of(context).textTheme.titleLarge,
         ),
         const SizedBox(height: 16),
-        const RelatedBookMainScreen(),
+        RelatedBookMainScreen(
+          category: widget.book['Category'],
+          selectedBookTitle: widget.book['Title'],
+        ),
       ],
     );
   }

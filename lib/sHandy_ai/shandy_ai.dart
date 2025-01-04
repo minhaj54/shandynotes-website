@@ -176,7 +176,7 @@ class SHandyNoteAiLandingPage extends StatelessWidget {
                   const Center(
                     child: TelegramButton(
                       channelUrl:
-                          'https://t.me/shandynotes', // Replace with your channel URL
+                          'https://www.instagram.com/shandynotes?igsh=dXRndTd5MGhrbXoy&utm_source=qr', // Replace with your channel URL
                     ),
                   ),
                   const SizedBox(height: 60),
