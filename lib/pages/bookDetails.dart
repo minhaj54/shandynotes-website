@@ -188,24 +188,24 @@ class _EbookDetailPageState extends State<EbookDetailPage> {
                     color: Colors.grey[600],
                   ),
             ),
-            const SizedBox(width: 16),
-            Row(
-              children: List.generate(
-                5,
-                (index) => Icon(
-                  index < 4 ? Icons.star : Icons.star_border,
-                  color: Colors.amber,
-                  size: 20,
-                ),
-              ),
-            ),
-            const SizedBox(width: 8),
-            Text(
-              '(798 reviews)',
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: Colors.grey[600],
-                  ),
-            ),
+            // const SizedBox(width: 16),
+            // Row(
+            //   children: List.generate(
+            //     5,
+            //     (index) => Icon(
+            //       index < 4 ? Icons.star : Icons.star_border,
+            //       color: Colors.amber,
+            //       size: 20,
+            //     ),
+            //   ),
+            // ),
+            // const SizedBox(width: 8),
+            // Text(
+            //   '(798 reviews)',
+            //   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+            //         color: Colors.grey[600],
+            //       ),
+            // ),
           ],
         ),
       ],
@@ -274,6 +274,9 @@ class _EbookDetailPageState extends State<EbookDetailPage> {
                       MaterialPageRoute(
                         builder: (context) => PaymentPage(
                           pdfUrl: widget.book['pdfFileId'],
+                          amount: calculateDiscountedPrice(
+                              actualPrice: widget.book['comparedPrice'],
+                              discountPercent: widget.book['discountPercent']),
                           //  amount: widget.book['Price'],
                         ),
                       )),

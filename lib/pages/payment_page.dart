@@ -11,7 +11,7 @@ class PaymentPage extends StatefulWidget {
   final double amount;
   final String pdfUrl;
 
-  const PaymentPage({super.key, this.amount = 1, required this.pdfUrl});
+  const PaymentPage({super.key, required this.pdfUrl, required this.amount});
 
   @override
   _PaymentPageState createState() => _PaymentPageState();
