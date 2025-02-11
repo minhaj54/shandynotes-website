@@ -133,7 +133,7 @@ class BlogPageState extends State<BlogPage> {
                         'assets/images/logo.jpg',
                       ),
                     ),
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(8),
                     border: Border.all(color: Colors.black, width: 2)),
               ),
               const SizedBox(width: 20),

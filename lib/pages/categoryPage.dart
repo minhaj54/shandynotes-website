@@ -108,15 +108,16 @@ class _BooksByCategoryPageState extends State<BooksByCategoryPage> {
                     ),
                   );
                 } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                  return SliverFillRemaining(
+                  return const SliverFillRemaining(
                     child: Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Icon(Icons.library_books_outlined,
+                          Icon(Icons.library_books_outlined,
                               size: 60, color: Colors.grey),
-                          const SizedBox(height: 16),
-                          Text('No Notes found for ${widget.categoryName}.'),
+                          SizedBox(height: 16),
+                          //   Text('No Notes found for ${widget.categoryName}.'),
+                          Text('Coming soon..'),
                         ],
                       ),
                     ),

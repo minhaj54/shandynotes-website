@@ -74,7 +74,7 @@ class SHandyNoteAiLandingPage extends StatelessWidget {
                   Center(
                     child: Image.network(
                         height: 400,
-                        "https://png.pngtree.com/png-vector/20240320/ourmid/pngtree-curious-robot-reading-book-png-image_12181635.png"),
+                        "https://cloud.appwrite.io/v1/storage/buckets/67aa347e001cffd1d535/files/67ab85e9003a78202af9/view?project=6719d1d0001cf69eb622&mode=admin"),
                   ),
                   const SizedBox(
                     height: 20,

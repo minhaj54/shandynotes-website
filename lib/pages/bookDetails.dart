@@ -94,7 +94,7 @@ class _EbookDetailPageState extends State<EbookDetailPage> {
                   border: Border.all(color: Colors.deepPurpleAccent),
                   // borderRadius: BorderRadius.circular(12),
                   boxShadow: const [
-                    BoxShadow(blurRadius: 2, color: Colors.deepPurpleAccent)
+                    // BoxShadow(blurRadius: 2, color: Colors.deepPurpleAccent)
                   ]),
               child: Image.network(
                 coverImages[selectedCoverIndex] == true

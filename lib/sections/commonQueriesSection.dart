@@ -152,7 +152,7 @@ class _CommonQueriesState extends State<CommonQueries> {
                   Expanded(
                     child: Image.network(
                       height: 450,
-                      'https://png.pngtree.com/png-clipart/20221113/ourmid/pngtree-brain-bulb-png-image_6446736.png',
+                      'https://cloud.appwrite.io/v1/storage/buckets/67aa347e001cffd1d535/files/67ab86a8001ec99a1c37/view?project=6719d1d0001cf69eb622&mode=admin',
                       fit: BoxFit.cover,
                       errorBuilder: (context, error, stackTrace) {
                         return Container(

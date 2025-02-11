@@ -34,7 +34,7 @@ class FeaturedSectionPage extends StatelessWidget {
             itemCount: books.length,
             itemBuilder: (context, index) {
               final book = books[index];
-              if (book["isFeatured"] == false) {
+              if (book["isFeatured"] == true) {
                 return BookCard(
                   book: book,
                   onTap: () => Navigator.of(context).push(MaterialPageRoute(

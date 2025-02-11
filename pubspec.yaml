@@ -50,6 +50,7 @@ dependencies:
   google_fonts:
   share_plus:
   iconsax: ^0.0.8
+  url_strategy: ^0.3.0
 
 dev_dependencies:
   flutter_test:

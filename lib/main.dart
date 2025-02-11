@@ -11,8 +11,11 @@ import 'package:shandynotes/pages/shop_page.dart';
 import 'package:shandynotes/pages/url_error_page.dart';
 import 'package:shandynotes/sHandy_ai/shandy_ai.dart';
 import 'package:shandynotes/services/book_service.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 void main() {
+  setPathUrlStrategy();
+
   runApp(
     MultiProvider(
       providers: [
@@ -95,7 +98,7 @@ class MyApp extends StatelessWidget {
                 orElse: () => {'Title': 'Unknown Book', 'error': true},
               );
               if (book['error'] == true) {
-                return const UrlErrorPage();
+                return const Center(child: CircularProgressIndicator());
               }
               return EbookDetailPage(book: book);
             },

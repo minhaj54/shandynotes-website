@@ -43,7 +43,7 @@ class _DesktopBanner extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "50,000+ Notes at One Place ☺.",
+                  "Your Ultimate Hub for Notes ☺.",
                   style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                         fontWeight: FontWeight.bold,
                         color: Colors.deepPurple,
@@ -105,14 +105,15 @@ class _DesktopBanner extends StatelessWidget {
             flex: 5,
             child: Container(
               constraints: const BoxConstraints(maxHeight: 500),
+              height: 500,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(16),
                 child: Image.network(
-                  "https://www.avanse.com/viewPagesAssets/img/ticket-to-our-dreams2.webp",
+                  "https://cloud.appwrite.io/v1/storage/buckets/67aa347e001cffd1d535/files/67aa349c00069ef14664/view?project=6719d1d0001cf69eb622&mode=admin",
                   fit: BoxFit.contain,
                   errorBuilder: (context, error, stackTrace) {
                     return Container(
-                      height: 400,
+                      height: 500,
                       decoration: BoxDecoration(
                         color: Colors.grey.shade200,
                         borderRadius: BorderRadius.circular(16),
@@ -155,7 +156,7 @@ class _TabletBanner extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  "50,000+ Notes at One Place ☺.",
+                  "Your Ultimate Hub for Notes ☺.",
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                         fontWeight: FontWeight.bold,
@@ -216,14 +217,15 @@ class _TabletBanner extends StatelessWidget {
           // Image section
           Container(
             constraints: const BoxConstraints(maxHeight: 400),
+            height: 400,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(16),
               child: Image.network(
-                "https://www.avanse.com/viewPagesAssets/img/ticket-to-our-dreams2.webp",
+                "https://cloud.appwrite.io/v1/storage/buckets/67aa347e001cffd1d535/files/67aa349c00069ef14664/view?project=6719d1d0001cf69eb622&mode=admin",
                 fit: BoxFit.contain,
                 errorBuilder: (context, error, stackTrace) {
                   return Container(
-                    height: 300,
+                    height: 400,
                     decoration: BoxDecoration(
                       color: Colors.grey.shade200,
                       borderRadius: BorderRadius.circular(16),
@@ -265,7 +267,7 @@ class _MobileBanner extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  "50,000+ Notes at One Place ☺.",
+                  "Your Ultimate Hub for Notes ☺.",
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.bold,
@@ -327,14 +329,15 @@ class _MobileBanner extends StatelessWidget {
           // Image section
           Container(
             constraints: const BoxConstraints(maxHeight: 300),
+            height: 300,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(16),
               child: Image.network(
-                "https://www.avanse.com/viewPagesAssets/img/ticket-to-our-dreams2.webp",
+                "https://cloud.appwrite.io/v1/storage/buckets/67aa347e001cffd1d535/files/67aa349c00069ef14664/view?project=6719d1d0001cf69eb622&mode=admin",
                 fit: BoxFit.contain,
                 errorBuilder: (context, error, stackTrace) {
                   return Container(
-                    height: 200,
+                    height: 300,
                     decoration: BoxDecoration(
                       color: Colors.grey.shade200,
                       borderRadius: BorderRadius.circular(16),

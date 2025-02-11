@@ -18,16 +18,15 @@ class ShareButton extends StatelessWidget {
 
   Future<void> _shareContent(BuildContext context) async {
     final String shareText = '''
-📚 Check out this amazing note on Shandy Notes!
 
 Title: $bookTitle
 Author: $bookAuthor
 Price: ₹$price
 
-Get your copy here: $bookUrl
+Download : $bookUrl
 
 Shandy Notes - Your Digital Study Partner
-Download our app: [Your App Store Link]
+
 ''';
 
     try {

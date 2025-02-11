@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MyNavigationDrawer extends StatelessWidget {
   final Function(String route)? onItemSelected;
@@ -34,11 +35,12 @@ class MyNavigationDrawer extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Shandy Notes',
-                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
+                  "Shandy Notes",
+                  style: GoogleFonts.kalam(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
               ],
             ),

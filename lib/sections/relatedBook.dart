@@ -26,7 +26,7 @@ class RelatedBookScreen extends StatelessWidget {
 
     if (relatedBooks.isEmpty) {
       return const Center(
-        child: Text('No related books found.'),
+        child: Text('No related notes found.'),
       );
     }
 
@@ -95,7 +95,7 @@ class _RelatedBookMainScreenState extends State<RelatedBookMainScreen> {
         } else if (snapshot.hasError) {
           return Center(child: Text('Error: ${snapshot.error}'));
         } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-          return const Center(child: Text('No books found.'));
+          return const Center(child: Text('No Notes found.'));
         }
         return RelatedBookScreen(
           books: snapshot.data!,

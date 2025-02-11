@@ -88,7 +88,7 @@ class _PaymentPageState extends State<PaymentPage> {
               const Text('Your PDF is ready to download.'),
               const SizedBox(height: 20),
               Image.network(
-                'https://www.kablooe.com/wp-content/uploads/2019/08/check_mark.png',
+                'https://cloud.appwrite.io/v1/storage/buckets/67aa347e001cffd1d535/files/67ab90e40033b5adedc8/view?project=6719d1d0001cf69eb622&mode=admin',
                 height: 100,
                 width: 100,
                 fit: BoxFit.contain,
@@ -203,6 +203,7 @@ class _PaymentPageState extends State<PaymentPage> {
     final screenWidth = MediaQuery.of(context).size.width;
     final isMobile = screenWidth < 600;
     return Scaffold(
+      backgroundColor: Colors.deepPurpleAccent,
       appBar: const ModernNavBar(),
       endDrawer: const MyNavigationDrawer(),
       body: Center(
