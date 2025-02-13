@@ -1,6 +1,6 @@
-import 'package:appwrite/appwrite.dart';
 import 'dart:convert';
-import 'dart:io';
+
+import 'package:appwrite/appwrite.dart';
 import 'package:http/http.dart' as http;
 
 class BookService {
@@ -67,8 +67,8 @@ class BookService {
     };
   }
 
-   static const String baseUrl = 'https://cloud.appwrite.io/v1';
-  
+  static const String baseUrl = 'https://cloud.appwrite.io/v1';
+
   Future<List<Map<String, dynamic>>> fetchNotesByQuery(String query) async {
     try {
       // Add headers if required by your API
@@ -88,7 +88,7 @@ class BookService {
       if (response.statusCode == 200) {
         // Ensure we're properly handling the JSON response
         final dynamic responseData = json.decode(response.body);
-        
+
         // Handle different response structures
         List<dynamic> data;
         if (responseData is Map) {
@@ -107,13 +107,13 @@ class BookService {
           final title = note['title']?.toString().toLowerCase() ?? '';
           final content = note['content']?.toString().toLowerCase() ?? '';
           final searchQuery = query.toLowerCase();
-          
+
           // Search in both title and content
           return title.contains(searchQuery) || content.contains(searchQuery);
         }).map((note) {
           // Ensure we return a Map<String, dynamic>
-          return note is Map<String, dynamic> 
-              ? note 
+          return note is Map<String, dynamic>
+              ? note
               : Map<String, dynamic>.from(note);
         }).toList();
       } else {

@@ -149,23 +149,23 @@ class _CommonQueriesState extends State<CommonQueries> {
                   const SizedBox(
                     width: 30,
                   ),
-                  Expanded(
-                    child: Image.network(
-                      height: 450,
-                      'https://cloud.appwrite.io/v1/storage/buckets/67aa347e001cffd1d535/files/67ab86a8001ec99a1c37/view?project=6719d1d0001cf69eb622&mode=admin',
-                      fit: BoxFit.cover,
-                      errorBuilder: (context, error, stackTrace) {
-                        return Container(
-                          color: Colors.grey.shade200,
-                          child: const Icon(
-                            Icons.error_outline,
-                            color: Colors.grey,
-                            size: 40,
-                          ),
-                        );
-                      },
-                    ),
-                  ),
+                  // Expanded(
+                  //   child: Image.network(
+                  //     height: 450,
+                  //     'https://cloud.appwrite.io/v1/storage/buckets/67aa347e001cffd1d535/files/67ab86a8001ec99a1c37/view?project=6719d1d0001cf69eb622&mode=admin',
+                  //     fit: BoxFit.cover,
+                  //     errorBuilder: (context, error, stackTrace) {
+                  //       return Container(
+                  //         color: Colors.grey.shade200,
+                  //         child: const Icon(
+                  //           Icons.error_outline,
+                  //           color: Colors.grey,
+                  //           size: 40,
+                  //         ),
+                  //       );
+                  //     },
+                  //   ),
+                  // ),
                 ],
               ],
             ),

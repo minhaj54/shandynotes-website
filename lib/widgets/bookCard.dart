@@ -80,6 +80,11 @@ class _BookCardState extends State<BookCard>
     // final price = formatPrice(widget.book['Price']);
     final discountPercent = widget.book['discountPercent'];
 
+    // formated title
+    String bookTitle = widget.book['Title'];
+    String encodedTitle =
+        bookTitle.replaceAll(" ", "-"); // Converts to "Python-Note"
+
     return MouseRegion(
       onEnter: (_) {
         setState(() => isHovered = true);
@@ -90,7 +95,7 @@ class _BookCardState extends State<BookCard>
         _controller.reverse();
       },
       child: GestureDetector(
-        onTap: () => context.go('/book/${widget.book['Title']}'),
+        onTap: () => context.go('/book/$encodedTitle'),
         child: ScaleTransition(
           scale: _scaleAnimation,
           child: Container(

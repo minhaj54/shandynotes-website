@@ -174,7 +174,7 @@ class _EbookDetailPageState extends State<EbookDetailPage> {
               bookTitle: widget.book['Title'] ?? 'Unknown Title',
               bookAuthor: widget.book['Author'] ?? 'Shandy Notes',
               bookUrl:
-                  'https://shandynotes.com/book/${widget.book['Title']}', // Adjust URL as needed
+                  'https://shandynotes.com/#/book/${widget.book['Title'].toString().replaceAll(' ', '-')}',
               price: double.parse(widget.book['Price'].toString()),
             ),
           ],

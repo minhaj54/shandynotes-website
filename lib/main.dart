@@ -11,11 +11,8 @@ import 'package:shandynotes/pages/shop_page.dart';
 import 'package:shandynotes/pages/url_error_page.dart';
 import 'package:shandynotes/sHandy_ai/shandy_ai.dart';
 import 'package:shandynotes/services/book_service.dart';
-import 'package:url_strategy/url_strategy.dart';
 
 void main() {
-  setPathUrlStrategy();
-
   runApp(
     MultiProvider(
       providers: [
@@ -90,13 +87,18 @@ class MyApp extends StatelessWidget {
       GoRoute(
         path: '/book/:bookTitle',
         builder: (context, state) {
-          final bookTitle = state.pathParameters['bookTitle'] ?? 'Unknown Note';
+          // Decode the book title by replacing hyphens with spaces
+          final encodedTitle =
+              state.pathParameters['bookTitle'] ?? 'Unknown-Note';
+          final bookTitle = encodedTitle.replaceAll("-", " "); // Convert back
+
           return Consumer<List<Map<String, dynamic>>>(
             builder: (context, books, _) {
               final book = books.firstWhere(
                 (b) => b['Title'] == bookTitle,
                 orElse: () => {'Title': 'Unknown Book', 'error': true},
               );
+
               if (book['error'] == true) {
                 return const Center(child: CircularProgressIndicator());
               }
@@ -112,10 +114,13 @@ class MyApp extends StatelessWidget {
       GoRoute(
         path: '/category/:categoryName',
         builder: (context, state) {
-          final categoryName =
+          final encodedCategory =
               state.pathParameters['categoryName'] ?? 'Unknown';
+          final categoryName = encodedCategory.replaceAll("-", " "); // Decode
+
           final bannerUrl = state.uri.queryParameters['bannerUrl'] ??
               'https://static.vecteezy.com/system/resources/thumbnails/044/303/796/small/abstract-wrapping-paper-rolling-on-a-black-background-concept-of-gifts-and-celebrations-design-two-rolls-of-decorative-gift-paper-in-motion-video.jpg';
+
           return BooksByCategoryPage(
             categoryName: categoryName,
             bannerUrl: bannerUrl,

@@ -8,7 +8,6 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../sections/LatestReleaseSection.dart';
 import '../sections/categorySection.dart';
-import '../sections/featuredSection.dart';
 import '../sections/popularSection.dart';
 import '../sections/procedure_to_create_notes.dart';
 import '../widgets/appbarWidgets.dart';
@@ -176,61 +175,61 @@ class Homepage extends StatelessWidget {
                 ],
               )),
 
-          // Featured Section
-          Expanded(
-            child: Container(
-                decoration: const BoxDecoration(
-                  color: Colors.deepPurpleAccent,
-                ),
-                child: Column(
-                  children: [
-                    const SizedBox(
-                      height: 80,
-                    ),
-                    Center(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Spacer(),
-                          const Text(
-                            'Featured Notes',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 25,
-                                color: Colors.white),
-                          ),
-                          const Spacer(),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 12.0),
-                            child: ElevatedButton(
-                              child: const Row(
-                                children: [
-                                  Text("View all"),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Icon(
-                                    Icons.arrow_forward,
-                                    size: 16,
-                                  )
-                                ],
-                              ),
-                              onPressed: () => context.go('/shop'),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    const FeaturedMainScreen(), // {{ edit_1 }} Check data fetching and rendering here
-                    const SizedBox(
-                      height: 100,
-                    )
-                  ],
-                )),
-          ),
+          // // Featured Section
+          // Expanded(
+          //   child: Container(
+          //       decoration: const BoxDecoration(
+          //         color: Colors.deepPurpleAccent,
+          //       ),
+          //       child: Column(
+          //         children: [
+          //           const SizedBox(
+          //             height: 80,
+          //           ),
+          //           Center(
+          //             child: Row(
+          //               mainAxisAlignment: MainAxisAlignment.center,
+          //               children: [
+          //                 const Spacer(),
+          //                 const Text(
+          //                   'Featured Notes',
+          //                   style: TextStyle(
+          //                       fontWeight: FontWeight.bold,
+          //                       fontSize: 25,
+          //                       color: Colors.white),
+          //                 ),
+          //                 const Spacer(),
+          //                 Padding(
+          //                   padding: const EdgeInsets.only(right: 12.0),
+          //                   child: ElevatedButton(
+          //                     child: const Row(
+          //                       children: [
+          //                         Text("View all"),
+          //                         SizedBox(
+          //                           width: 5,
+          //                         ),
+          //                         Icon(
+          //                           Icons.arrow_forward,
+          //                           size: 16,
+          //                         )
+          //                       ],
+          //                     ),
+          //                     onPressed: () => context.go('/shop'),
+          //                   ),
+          //                 )
+          //               ],
+          //             ),
+          //           ),
+          //           const SizedBox(
+          //             height: 30,
+          //           ),
+          //           const FeaturedMainScreen(), // {{ edit_1 }} Check data fetching and rendering here
+          //           const SizedBox(
+          //             height: 100,
+          //           )
+          //         ],
+          //       )),
+          // ),
           // Procedure of creating notes
           const ProcedureToCreateNotes(),
 
@@ -241,7 +240,7 @@ class Homepage extends StatelessWidget {
           const CommonQueries(),
 
           //footer Section
-          const Expanded(child: Footer()),
+          const Footer(),
         ],
       ),
     );
