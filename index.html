@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/shandynotes-website/">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <!-- Security Headers -->
+  <meta http-equiv="content-type" content="nosniff">
+  <meta http-equiv="refresh" content="geolocation 'none'; microphone 'none'; camera 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' https://checkout.razorpay.com https://lumberjack.razorpay.com; img-src 'self' blob: data:">
+  <meta http-equiv="content-type" content="nosniff">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+
+  <!-- Primary Meta Tags -->
+  <title>Shandy Notes - Expert Study Materials for Programming, JEE, NEET & Competitive Exams</title>
+  <meta name="description" content="Access comprehensive, high-quality study notes for programming, technology, JEE, NEET, and other competitive exams. Get expertly curated academic materials to excel in your studies.">
+  <meta name="keywords" content="Shandy Notes, programming tutorials, JEE preparation, NEET study materials, competitive exam notes, technology guides, coding notes, engineering preparation, medical entrance prep, online study materials">
+  <meta name="author" content="Shandy Notes">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shandynotes.com">
+  <meta property="og:title" content="Shandy Notes - Expert Study Materials for Programming, JEE, NEET & Competitive Exams">
+  <meta property="og:description" content="Access comprehensive, high-quality study notes for programming, technology, JEE, NEET, and other competitive exams. Get expertly curated academic materials to excel in your studies.">
+  <meta property="og:image" content="https://shandynotes.com/og-image.jpg">
+  <meta property="og:image:alt" content="Shandy Notes Platform Preview">
+  <meta property="og:site_name" content="Shandy Notes">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://shandynotes.com">
+  <meta name="twitter:title" content="Shandy Notes - Expert Study Materials for Programming & Competitive Exams">
+  <meta name="twitter:description" content="Access comprehensive, high-quality study notes for programming, technology, JEE, NEET, and other competitive exams. Get expertly curated academic materials to excel in your studies.">
+  <meta name="twitter:image" content="https://shandynotes.com/twitter-image.jpg">
+  <meta name="twitter:image:alt" content="Shandy Notes Platform Preview">
+
+  <!-- PWA -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Shandy Notes">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Icons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="canonical" href="https://shandynotes.com">
+
+  <!-- Preconnect to required origins -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://checkout.razorpay.com">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PPV796FLFS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PPV796FLFS', {
+      'anonymize_ip': true,
+      'cookie_flags': 'SameSite=None;Secure'
+    });
+  </script>
+</head>
+<body>
+<!-- App Content -->
+<noscript>
+  <p>Please enable JavaScript to use Shandy Notes.</p>
+</noscript>
+
+<!-- Main Scripts -->
+<script src="flutter_bootstrap.js" defer></script>
+<!-- <script src="https://checkout.razorpay.com/v1/checkout.js" defer></script> -->
+<script>
+  window.addEventListener('load', function () {
+    var script = document.createElement('script');
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.async = true;
+    document.body.appendChild(script);
+  });
+</script>
+
+<script>
+  if (location.pathname !== "/" && !location.pathname.startsWith("/#") && !location.pathname.startsWith("/?")) {
+    location.replace("/#"+location.pathname);
+  }
+</script>
+</body>
+</html>
